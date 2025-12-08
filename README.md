@@ -43,9 +43,7 @@ The agent is trained using **Proximal Policy Optimization (PPO)** with **Unity M
 
 - Uses a handcrafted GPU-load model instead of real FPS:
 
-  $$
-  L = 2.5r^2 + 2.0s^2 + 0.6t + 1.2\sqrt{a}
-  $$
+  $L = 2.5r^2 + 2.0s^2 + 0.6t + 1.2\sqrt{a}$
 
   where:
   - \( r \): resolution level  
@@ -55,9 +53,7 @@ The agent is trained using **Proximal Policy Optimization (PPO)** with **Unity M
 
 - Simulated FPS is computed as:
 
-  $$
-  FPS_{\text{sim}} = \frac{FPS_{\text{target}}}{L + 1}
-  $$
+  $FPS_{\text{sim}} = \frac{FPS_{\text{target}}}{L + 1}$
 
 - A small random noise term (e.g., ±2%) is added to mimic real system variability.
 - Advantages:
@@ -79,11 +75,13 @@ The agent is trained using **Proximal Policy Optimization (PPO)** with **Unity M
 - Reward:
   - Balances FPS level, FPS improvement, and visual quality using:
 
-    $$
-    R = \left( \frac{FPS}{FPS_{\text{target}}} \right)^2
-      + \beta(FPS_t - FPS_{t-1})
-      - \alpha\left(1 - \sqrt{0.4r + 0.3t + 0.2s + 0.1a}\right)
-    $$
+    $R = \left( \frac{FPS}{FPS_{\text{target}}} \right)^2 + \beta(FPS_t - FPS_{t-1}) - \alpha\left(1 - \sqrt{0.4r + 0.3t + 0.2s + 0.1a}\right)$
 
 - Goal:
   - Learn a policy that finds a **practical tradeoff** between frame rate and graphics quality for lower-end hardware.
+
+
+
+
+
+
